@@ -1,6 +1,6 @@
 class AddPersonsToUsers < ActiveRecord::Migration[5.2]
   def self.up
-    add_column :people, :user_id, :integer, null: false, index: true, default: 1
+    add_column :people, :user_id, :integer, null: false, index: true
     add_foreign_key :people, :users, on_delete: :cascade
   end
 

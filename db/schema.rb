@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_12_20_035142) do
     t.integer "assessment_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", default: 1, null: false
+    t.integer "user_id", null: false
     t.index ["organisation_id"], name: "index_people_on_organisation_id"
   end
 
@@ -40,14 +40,6 @@ ActiveRecord::Schema.define(version: 2018_12_20_035142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.integer "test_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

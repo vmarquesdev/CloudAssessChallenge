@@ -3,7 +3,7 @@ class API::TemporaryPeopleController < API::APIController
   # GET /api/temporary_people
   #
   def index
-    @people = params[:s].present? ? Person.search(params[:s]) : Person.all
+    @people = params[:s].present? ? Person.search(params[:s]).with_assessments : Person.with_assessments
   end
 
   # GET /api/temporary_people/:id

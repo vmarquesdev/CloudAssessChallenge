@@ -1,6 +1,8 @@
 class Person < ApplicationRecord
   belongs_to :organisation
 
+  scope :with_assessments, -> { where("assessment_count > 0") }
+
   include PgSearch
   pg_search_scope :search, against: [ :first_name, :last_name ], associated_against: {
     organisation: :title,

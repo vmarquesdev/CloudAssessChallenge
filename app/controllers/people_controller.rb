@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = params[:s].present? ? Person.search(params[:s]) : Person.all   
   end
 
   # GET /people/1
