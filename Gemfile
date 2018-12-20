@@ -16,6 +16,7 @@ gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.5'
 gem 'rack-cors', require: 'rack/cors'
 gem 'devise'
+gem 'pg_search'
 
 #==================================================
 # FRONT-END
