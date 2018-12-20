@@ -15,5 +15,6 @@ class CreatePeople < ActiveRecord::Migration[5.2]
   def self.down
     drop_table :people
     remove_index :people, :organisation_id
+    remove_foreign_key :people, :organisation_id
   end
 end

@@ -20,8 +20,11 @@
         <td><%= person.organisation.title %></td>
 
         <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if current_user && current_user.id == person.user_id %>
+          <td><%= link_to 'Edit', edit_person_path(person) %></td>
+          <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +32,9 @@
 
 <br>
 
-<%= link_to 'New Person', new_person_path %>
+<% if current_user %>
+  <%= link_to 'New Person', new_person_path %>
+  <%= link_to 'Sign out', destroy_user_session_path %>
+<% else %>
+  <%= link_to 'Sign up to add Person', new_user_session_path %>
+<% end %>

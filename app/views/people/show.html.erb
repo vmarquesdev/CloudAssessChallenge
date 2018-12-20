@@ -25,5 +25,8 @@
   <%= @person.assessment_count %>
 </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
+<% if current_user %>
+  <%= link_to 'Edit', edit_person_path(@person) %> |
+<% end %>
+
 <%= link_to 'Back', people_path %>

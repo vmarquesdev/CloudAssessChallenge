@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
@@ -25,6 +26,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    @person.user_id = current_user.id
 
     respond_to do |format|
       if @person.save
