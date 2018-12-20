@@ -11,6 +11,28 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+    <div class="field">
+    <%= form.label "Organisation" %>
+    <%= form.collection_select(:organisation_id, Organisation.all, :id, :title) %>
+  </div>
+
+  <% if person.new_record? %>
+    <div class="field">
+      <%= form.label :assessment_count %>
+      <%= form.number_field :assessment_count %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
